@@ -3,9 +3,8 @@ import { toast } from "sonner";
 
 import { buildNewsItemMarkdown, copyText } from "@/lib/exportUtils";
 import type { NewsItem } from "@/types/report";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 export function NewsCard({ item }: { item: NewsItem }) {
@@ -15,14 +14,12 @@ export function NewsCard({ item }: { item: NewsItem }) {
   }
 
   return (
-    <Card
-      className={
-        item.importanceScore > 90
-          ? "border-amber-200 bg-[linear-gradient(180deg,#ffffff_0%,#fffaf0_100%)]"
-          : undefined
-      }
+    <article
+      className={`news-card-template p-4 ${
+        item.importanceScore > 90 ? "border-orange-200 bg-[linear-gradient(180deg,#ffffff_0%,#fffaf0_100%)]" : ""
+      }`}
     >
-      <CardContent className="space-y-5 p-5">
+      <div className="space-y-4">
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2">
@@ -77,7 +74,7 @@ export function NewsCard({ item }: { item: NewsItem }) {
             重要性 {item.importanceScore}
           </span>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </article>
   );
 }

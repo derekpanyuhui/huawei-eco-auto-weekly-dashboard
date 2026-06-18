@@ -3,39 +3,45 @@ import { Layers3 } from "lucide-react";
 import { HUAWEI_COVERAGE_BOARDS, countBoardNews } from "@/lib/coverage";
 import type { WeeklyNewsReport } from "@/types/report";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function HuaweiCoverageSummary({ report }: { report: WeeklyNewsReport }) {
   return (
-    <Card className="border-red-100 bg-white">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-xl text-slate-950">
-          <Layers3 className="size-5 text-red-600" />
-          华为固定覆盖板块
-        </CardTitle>
-        <p className="text-sm leading-7 text-slate-500">
-          以下为本期固定跟踪范围；无新闻的板块保留计数提示，不展开空新闻标题。
+    <section className="board-panel p-5">
+      <div className="panel-head mb-4">
+        <div>
+          <span className="panel-kicker inline-flex items-center gap-2">
+            <Layers3 className="size-4 text-red-600" />
+            COVERAGE TRACKING
+          </span>
+          <h2>华为固定覆盖板块</h2>
+        </div>
+        <p className="max-w-2xl text-right text-sm leading-6 text-slate-500">
+          每个固定板块显示本期新闻数量；无新闻板块只保留监测状态，不展开空新闻标题。
         </p>
-      </CardHeader>
-      <CardContent>
+      </div>
+      <div>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {HUAWEI_COVERAGE_BOARDS.map((board) => {
             const count = countBoardNews(report, board);
             return (
               <div
-                className="flex min-h-20 items-center justify-between gap-4 rounded-lg border border-red-100 bg-red-50/45 px-4 py-3"
+                className="coverage-card-template flex min-h-28 items-center justify-between gap-4 p-4"
                 key={board.name}
               >
                 <div>
                   <p className="text-sm font-semibold leading-6 text-slate-950">{board.label}</p>
-                  <p className="mt-1 text-xs text-slate-500">{count > 0 ? "本期已收录" : "本期暂无匹配新闻"}</p>
+                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                    {count > 0 ? "本期已收录，进入下方新闻板块查看详情" : "本期暂无匹配新闻，继续保持监测"}
+                  </p>
                 </div>
-                <Badge variant={count > 0 ? "default" : "secondary"}>{count} 条</Badge>
+                <Badge className={count > 0 ? "status-pill updated" : "status-pill monitoring"}>
+                  {count} 条
+                </Badge>
               </div>
             );
           })}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }

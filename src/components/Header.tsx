@@ -1,10 +1,9 @@
-import { CalendarRange, CheckCircle2, History } from "lucide-react";
+import { CalendarRange, CheckCircle2, Download, History } from "lucide-react";
 
 import { formatGeneratedAt, formatReportRange } from "@/lib/dateUtils";
 import type { WeeklyNewsReport } from "@/types/report";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { HuaweiLogo } from "@/components/HuaweiLogo";
 
 interface HeaderProps {
@@ -16,47 +15,42 @@ interface HeaderProps {
 
 export function Header({ report, historyCount, onOpenHistory, onExportFocus }: HeaderProps) {
   return (
-    <Card className="overflow-hidden border-red-100 bg-[linear-gradient(135deg,#fff5f4_0%,#ffffff_34%,#fff7f5_100%)]">
-      <CardContent className="p-6 md:p-8">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="rounded-2xl border border-red-100 bg-white px-4 py-3 shadow-sm">
-                <HuaweiLogo />
-              </div>
-              <div className="space-y-1">
-                <p className="text-xs font-semibold text-red-600">HUAWEI WEEKLY BOARD</p>
-                <p className="text-sm text-slate-500">红白汇报版 · 智能汽车生态跟踪</p>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <h1 className="max-w-4xl text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                华为生态与智能汽车行业周报看板
-              </h1>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600">
-                <span className="inline-flex items-center gap-2">
-                  <CalendarRange className="size-4 text-red-600" />
-                  周期：{formatReportRange(report.weekStart, report.weekEnd)}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <CheckCircle2 className="size-4 text-emerald-600" />
-                  生成时间：{formatGeneratedAt(report.generatedAt)}
-                </span>
-                <Badge variant="highlight">最新周报状态：已更新</Badge>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <Badge variant="secondary">历史周报 {historyCount} 期</Badge>
-            <Button variant="outline" onClick={onOpenHistory}>
-              <History className="size-4" />
-              查看历史
-            </Button>
-            <Button onClick={onExportFocus}>导出周报</Button>
-          </div>
+    <header className="board-panel topbar">
+      <div className="brand-block">
+        <HuaweiLogo />
+        <div>
+          <strong className="block text-lg font-black text-slate-950 md:text-xl">HUAWEI Weekly Intelligence Board</strong>
+          <span className="muted-small">华为生态与智能汽车行业周报看板</span>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+
+      <div className="window-block">
+        <span className="inline-flex items-center gap-2">
+          <CalendarRange className="size-4 text-red-600" />
+          监测窗口
+        </span>
+        <strong>{formatReportRange(report.weekStart, report.weekEnd)}</strong>
+      </div>
+
+      <div className="window-block">
+        <span className="inline-flex items-center gap-2">
+          <CheckCircle2 className="size-4 text-emerald-600" />
+          更新状态
+        </span>
+        <strong>{formatGeneratedAt(report.generatedAt)}</strong>
+        <Badge variant="highlight">已更新 · 历史 {historyCount} 期</Badge>
+      </div>
+
+      <div className="flex flex-wrap justify-end gap-3">
+        <Button variant="outline" onClick={onOpenHistory}>
+          <History className="size-4" />
+          历史
+        </Button>
+        <Button onClick={onExportFocus}>
+          <Download className="size-4" />
+          导出
+        </Button>
+      </div>
+    </header>
   );
 }

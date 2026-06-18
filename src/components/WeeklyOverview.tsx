@@ -1,26 +1,48 @@
-import { FileText } from "lucide-react";
+import { FileText, Newspaper, ShieldCheck, Target } from "lucide-react";
 
 import { buildOverviewHeading } from "@/lib/dateUtils";
 import type { WeeklyNewsReport } from "@/types/report";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function WeeklyOverview({ report }: { report: WeeklyNewsReport }) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-slate-950">
-          <FileText className="size-5 text-red-600" />
-          周报概览
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm leading-7 text-slate-600">{buildOverviewHeading(report.weekStart, report.weekEnd)}</p>
-        <div className="rounded-[24px] bg-slate-50 p-5">
-          <p className="text-lg font-semibold text-slate-950">🤖 本周华为生态与智能汽车行业新闻周报 🔆</p>
-          <p className="mt-4 text-sm font-medium text-red-700">✍️ 概览：</p>
-          <p className="mt-2 text-base leading-8 text-slate-700">{report.overview}</p>
+    <section className="board-panel headline-panel">
+      <div className="grid content-center gap-4">
+        <span className="panel-kicker inline-flex items-center gap-2">
+          <FileText className="size-4 text-red-600" />
+          WEEKLY BRIEF
+        </span>
+        <h1 className="headline-title">华为资讯洞察看板</h1>
+        <p className="max-w-4xl text-sm leading-7 text-slate-600">
+          {buildOverviewHeading(report.weekStart, report.weekEnd)}
+        </p>
+        <p className="max-w-5xl text-base leading-8 text-slate-700">{report.overview}</p>
+      </div>
+      <aside className="policy-card grid gap-4">
+        <div>
+          <span className="muted-small">来源与口径</span>
+          <strong className="mt-1 block text-2xl leading-tight text-slate-950">官方与权威渠道优先</strong>
+          <p className="mt-2 text-sm leading-7 text-slate-600">
+            企业官网、官方媒体、官方微博、官方微信公众号公开内容、监管公告与权威媒体均可纳入。
+          </p>
         </div>
-      </CardContent>
-    </Card>
+        <div className="metric-row">
+          <div className="metric-card">
+            <Newspaper className="mb-2 size-4 text-red-600" />
+            <strong>{report.items.length}</strong>
+            <p>本期新闻</p>
+          </div>
+          <div className="metric-card">
+            <ShieldCheck className="mb-2 size-4 text-red-600" />
+            <strong>100%</strong>
+            <p>含来源链接</p>
+          </div>
+          <div className="metric-card">
+            <Target className="mb-2 size-4 text-red-600" />
+            <strong>6</strong>
+            <p>华为固定板块</p>
+          </div>
+        </div>
+      </aside>
+    </section>
   );
 }

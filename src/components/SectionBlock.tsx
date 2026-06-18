@@ -1,7 +1,6 @@
 import type { NewsPrimarySection, NewsItem } from "@/types/report";
 import { CompanyBlock } from "@/components/CompanyBlock";
 import { NewsCard } from "@/components/NewsCard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const SECTION_DESCRIPTIONS: Record<NewsPrimarySection, string> = {
   战略合作伙伴板块: "围绕华为生态核心伙伴的合作、技术、产能与组织动态。",
@@ -32,12 +31,15 @@ export function SectionBlock({
   }
 
   return (
-    <Card className="bg-[linear-gradient(180deg,#ffffff_0%,#fff8f7_100%)]">
-      <CardHeader>
-        <CardTitle className="text-2xl text-slate-950">{section}</CardTitle>
-        <p className="text-sm leading-7 text-slate-500">{SECTION_DESCRIPTIONS[section]}</p>
-      </CardHeader>
-      <CardContent className="space-y-8">
+    <section className="board-panel p-5">
+      <div className="panel-head mb-5">
+        <div>
+          <span className="panel-kicker">NEWS PANEL</span>
+          <h2>{section}</h2>
+        </div>
+        <p className="max-w-xl text-right text-sm leading-6 text-slate-500">{SECTION_DESCRIPTIONS[section]}</p>
+      </div>
+      <div className="space-y-8">
         {directItems.length > 0 ? (
           <div className="grid gap-4">
             {directItems.map((item) => (
@@ -53,7 +55,7 @@ export function SectionBlock({
             ))}
           </CompanyBlock>
         ))}
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }
