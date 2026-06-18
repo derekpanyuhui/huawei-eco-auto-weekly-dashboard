@@ -21,14 +21,21 @@ export function Header({ report, historyCount, onOpenHistory, onExportFocus }: H
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="rounded-2xl border border-red-100 bg-white px-4 py-3 shadow-sm">
-                <img
-                  alt="Huawei"
-                  className="h-9 w-auto md:h-10"
-                  src={`${import.meta.env.BASE_URL}assets/huawei_wordmark_512.png`}
-                />
+                <div className="flex items-center gap-3">
+                  <img
+                    alt="Huawei logo"
+                    className="h-10 w-10 object-contain"
+                    src={`${import.meta.env.BASE_URL}assets/huawei_logo_symbol_256.png`}
+                  />
+                  <img
+                    alt="Huawei"
+                    className="h-7 w-auto md:h-8"
+                    src={`${import.meta.env.BASE_URL}assets/huawei_wordmark_512.png`}
+                  />
+                </div>
               </div>
               <div className="space-y-1">
-                <p className="text-xs font-semibold tracking-[0.22em] text-red-600">HUAWEI WEEKLY BOARD</p>
+                <p className="text-xs font-semibold text-red-600">HUAWEI WEEKLY BOARD</p>
                 <p className="text-sm text-slate-500">红白汇报版 · 智能汽车生态跟踪</p>
               </div>
             </div>

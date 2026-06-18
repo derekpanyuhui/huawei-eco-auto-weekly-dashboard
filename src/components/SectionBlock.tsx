@@ -47,7 +47,7 @@ export function SectionBlock({
         ) : null}
 
         {[...groups.entries()].map(([company, companyItems]) => (
-          <CompanyBlock key={company} title={company}>
+          <CompanyBlock key={company} title={company} count={companyItems.length}>
             {companyItems.map((item) => (
               <NewsCard key={item.id} item={item} />
             ))}

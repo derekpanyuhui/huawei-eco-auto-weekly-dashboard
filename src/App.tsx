@@ -8,6 +8,7 @@ import { ErrorState } from "@/components/ErrorState";
 import { ExportPanel } from "@/components/ExportPanel";
 import { Header } from "@/components/Header";
 import { HistoryDrawer } from "@/components/HistoryDrawer";
+import { HuaweiCoverageSummary } from "@/components/HuaweiCoverageSummary";
 import { KeyTakeaways } from "@/components/KeyTakeaways";
 import { LoadingState } from "@/components/LoadingState";
 import { NewsDashboard } from "@/components/NewsDashboard";
@@ -87,6 +88,7 @@ export default function App() {
               onExportFocus={focusExportPanel}
             />
             <WeeklyOverview report={report} />
+            <HuaweiCoverageSummary report={report} />
             <ExportPanel report={report} targetElement={reportRef.current} />
             <NewsDashboard report={report} />
             <KeyTakeaways report={report} />
