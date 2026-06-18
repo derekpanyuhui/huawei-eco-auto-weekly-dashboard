@@ -48,7 +48,7 @@ export function ExportPanel({ report, targetElement }: ExportPanelProps) {
     <Card id="export-panel">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-slate-950">
-          <Download className="size-5 text-sky-700" />
+          <Download className="size-5 text-red-600" />
           导出与复制
         </CardTitle>
         <p className="text-sm leading-7 text-slate-500">{getReportSummaryLabel(report)}</p>

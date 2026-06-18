@@ -8,7 +8,7 @@ export function KeyTakeaways({ report }: { report: WeeklyNewsReport }) {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-slate-950">
-          <TrendingUp className="size-5 text-sky-700" />
+          <TrendingUp className="size-5 text-red-600" />
           关键总结
         </CardTitle>
       </CardHeader>
@@ -19,7 +19,7 @@ export function KeyTakeaways({ report }: { report: WeeklyNewsReport }) {
               key={takeaway}
               className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-700"
             >
-              <div className="mb-3 inline-flex size-8 items-center justify-center rounded-full bg-sky-700 text-sm font-semibold text-white">
+              <div className="mb-3 inline-flex size-8 items-center justify-center rounded-full bg-red-600 text-sm font-semibold text-white">
                 {index + 1}
               </div>
               <p>{takeaway}</p>

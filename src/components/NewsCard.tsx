@@ -48,7 +48,7 @@ export function NewsCard({ item }: { item: NewsItem }) {
         <p className="text-sm leading-7 text-slate-700">{item.summary}</p>
 
         <a
-          className="inline-flex items-center gap-2 text-sm font-semibold text-sky-700 transition hover:text-sky-900"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-red-700 transition hover:text-red-900"
           href={item.sourceUrl}
           target="_blank"
           rel="noreferrer"

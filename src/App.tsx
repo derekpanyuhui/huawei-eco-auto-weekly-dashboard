@@ -72,7 +72,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f4f7fb] text-slate-950">
+    <div className="min-h-screen bg-[#fff7f5] text-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-10">
         {loadState === "loading" ? <LoadingState /> : null}
         {loadState === "error" ? <ErrorState message={errorMessage} onRetry={() => void bootstrap()} /> : null}
@@ -90,8 +90,8 @@ export default function App() {
             <ExportPanel report={report} targetElement={reportRef.current} />
             <NewsDashboard report={report} />
             <KeyTakeaways report={report} />
-            <div className="rounded-[28px] border border-slate-200 bg-white/80 px-6 py-5 text-sm leading-7 text-slate-500 shadow-sm">
-              数据来源说明：仅展示最近7天内、具备真实发布时间与可访问链接的新闻；优先保留企业官网、权威媒体、监管公告及行业权威来源。
+            <div className="rounded-[28px] border border-red-100 bg-white px-6 py-5 text-sm leading-7 text-slate-600 shadow-sm">
+              数据来源说明：仅展示最近7天内、具备真实发布时间与可访问链接的新闻；检索范围不只限企业官网，也包括官方媒体、官方微博、官方微信公众号公开发布内容，以及监管公告与权威行业媒体。
             </div>
           </div>
         ) : null}

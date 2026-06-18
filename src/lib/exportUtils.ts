@@ -111,7 +111,7 @@ export function exportCsv(report: WeeklyNewsReport) {
 export async function exportElementAsPng(element: HTMLElement, fileName: string) {
   const { default: html2canvas } = await import("html2canvas");
   const canvas = await html2canvas(element, {
-    backgroundColor: "#f4f7fb",
+    backgroundColor: "#fff7f5",
     scale: 2,
     useCORS: true,
   });
@@ -126,7 +126,7 @@ export async function exportElementAsPng(element: HTMLElement, fileName: string)
 export async function exportElementAsPdf(element: HTMLElement, fileName: string) {
   const [{ default: html2canvas }, { jsPDF }] = await Promise.all([import("html2canvas"), import("jspdf")]);
   const canvas = await html2canvas(element, {
-    backgroundColor: "#f4f7fb",
+    backgroundColor: "#fff7f5",
     scale: 2,
     useCORS: true,
   });

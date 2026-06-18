@@ -7,7 +7,7 @@ export function EmptyState() {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-slate-950">
-          <DatabaseZap className="size-5 text-sky-700" />
+          <DatabaseZap className="size-5 text-red-600" />
           暂无可用周报数据
         </CardTitle>
       </CardHeader>

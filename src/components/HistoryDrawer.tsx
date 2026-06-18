@@ -32,7 +32,7 @@ export function HistoryDrawer({
       <SheetContent>
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2">
-            <History className="size-5 text-sky-700" />
+            <History className="size-5 text-red-600" />
             历史周报
           </SheetTitle>
           <SheetDescription>点击任意周报即可切换查看对应历史版本。</SheetDescription>
@@ -47,7 +47,7 @@ export function HistoryDrawer({
                     key={item.id}
                     className={`rounded-3xl border p-4 text-left transition ${
                       active
-                        ? "border-sky-300 bg-sky-50"
+                        ? "border-red-300 bg-red-50"
                         : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
                     }`}
                     onClick={() => onSelect(item)}

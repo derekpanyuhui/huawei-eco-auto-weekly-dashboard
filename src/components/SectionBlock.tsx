@@ -32,7 +32,7 @@ export function SectionBlock({
   }
 
   return (
-    <Card className="bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]">
+    <Card className="bg-[linear-gradient(180deg,#ffffff_0%,#fff8f7_100%)]">
       <CardHeader>
         <CardTitle className="text-2xl text-slate-950">{section}</CardTitle>
         <p className="text-sm leading-7 text-slate-500">{SECTION_DESCRIPTIONS[section]}</p>
