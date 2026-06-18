@@ -1,0 +1,17 @@
+# Tencent Cloud EdgeOne
+.env
+.env.local
+.env.*.local
+.edgeone/*
+.tef_dist/*
+
+# Node / frontend
+node_modules
+dist
+.vite
+
+# Generated working data
+tmp/weekly-news
+
+# macOS
+.DS_Store

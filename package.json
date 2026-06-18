@@ -1,0 +1,56 @@
+{
+  "name": "huawei-eco-auto-weekly-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Huawei ecosystem and intelligent automotive weekly report dashboard with GitHub Pages deployment.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "report:fetch": "tsx scripts/fetchWeeklyNews.ts",
+    "report:generate": "tsx scripts/generateWeeklyReport.ts",
+    "report:validate": "tsx scripts/validateReport.ts",
+    "report:index": "tsx scripts/updateHistoryIndex.ts",
+    "report:update": "npm run report:fetch && npm run report:generate"
+  },
+  "keywords": [
+    "huawei",
+    "weekly-report",
+    "vite",
+    "react",
+    "github-pages"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.17",
+    "@radix-ui/react-scroll-area": "^1.2.12",
+    "@radix-ui/react-separator": "^1.1.10",
+    "@radix-ui/react-slot": "^1.3.0",
+    "@radix-ui/react-visually-hidden": "^1.2.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.20.0",
+    "openai": "^6.44.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.0"
+  }
+}
